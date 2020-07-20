@@ -1,13 +1,12 @@
 # import urllib.request, urllib.parse, urllib.error
 # import ssl
+#import requests as req
 import pandas as pd
 from bs4 import BeautifulSoup
-#import requests as req
+
 import csv
 
-
 # Reading locally extracted HTML file
-
 with open("facturen.html", "r") as f:
     contents = f.read()
 
@@ -21,7 +20,6 @@ with open("facturen.html", "r") as f:
     sign = '¬'
 
     # write a new csv file if it doesnt exist and append to it
-
     with open('facturen.csv', 'a', newline='') as csvfile:
         datafile = csv.writer(csvfile)
         datafile.writerow(["bedrag"])   # create headers
@@ -32,7 +30,5 @@ with open("facturen.html", "r") as f:
                 datafile.writerow([text1])
 
 # Testing pandas dataframe calculations
-
 df = pd.read_csv(r'facturen.csv')
-
 print(df.head())
